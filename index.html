@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Panda Media Enterprise</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0a2351;
+            --accent-gold: #c5a059;
+            --light-bg: #f4f7f9;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            color: #333;
+            background-color: var(--light-bg);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--primary-blue) !important;
+            letter-spacing: -0.5px;
+            font-family:"Times New Roman",serif;
+        }
+        .navbar-brand span {
+            color: var(--accent-gold);
+        }
+        .nav-link {
+            font-weight: 600;
+            color: var(--primary-blue) !important;
+            margin: 0 10px;
+        }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a7a 100%); 
+            padding: 120px 0; 
+            text-align: center; 
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+        .hero h1 { 
+            font-weight: 800; 
+            font-size: 6rem; 
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            font-family:"Times New Roman",serif;
+        }
+        .hero .lead { 
+            font-size: 1.25rem; 
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-family:"Times New Roman",serif;
+        }
+
+        /* Services Cards */
+        .card { 
+            border: none; 
+            border-radius: 20px; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .card h3 { 
+            color: var(--primary-blue); 
+            font-weight: 700;
+            font-family:"Times New Roman",serif;
+        }
+        .price-tag {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: #fff;
+            padding: 12px 30px;
+            font-weight: 700;
+            border-radius: 50px;
+            font-family:"Times New Roman",serif;
+        }
+        .btn-primary:hover {
+            background-color: #b38e4a;
+            border-color: #b38e4a;
+        }
+        .btn-outline-dark {
+            border-radius: 50px;
+            border-width: 2px;
+            font-weight: 600;
+        }
+        
+        .skills-header{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+}
+
+.skills-header i{
+font-size:22px;
+}
+
+.skills-header h2{
+font-family:"Times New Roman",serif;
+font-size:28px;
+font-weight:900;
+}
+
+.skills-sub{
+font-family:Inter;
+color:#555;
+margin-bottom:25px;
+}
+
+.course-box{
+border:2px solid var(--primary-blue);
+border-radius:10px;
+margin-bottom:18px;
+overflow:hidden;
+background:#fff;
+}
+
+.course-title{
+padding:18px;
+font-family:Times new roman;
+font-weight:600;
+cursor:pointer;
+background:#f5f5f5;
+}
+
+.course-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+color: var(--primary-blue); 
+}
+
+.course-title i{
+transition:0.3s;
+}
+
+.course-box.active .course-title i{
+transform:rotate(90deg);
+}
+
+.course-content{
+max-height:0;
+overflow:hidden;
+transition:0.4s;
+padding:0 18px;
+color:#000
+font-family:Inter;
+}
+
+.course-box.active .course-content{
+max-height:400px;
+padding:18px;
+}
+
+.price{
+font-weight:600;
+margin-top:5px;
+}
+
+.buy-btn{
+margin-top:12px;
+padding:10px 20px;
+border-radius:6px;
+border:none;
+background:var(--accent-gold);
+color:#fff;
+font-family:Times new roman;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+       
+        /* Footer */
+        footer { 
+            background: #051126; 
+            color: #d1d1d1; 
+            padding: 60px 0 30px; 
+            margin-top: 80px; 
+        }
+        footer h5 { color: white; margin-bottom: 20px; font-weight: 700; }
+        footer a { color: #adb5bd; text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--accent-gold); }
+        .contact-info i { color: var(--accent-gold); margin-right: 10px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><b>PANDA<span>MEDIA</span></b></a>
+            <div class="navbar-nav ms-auto d-none d-lg-flex">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="#services">Services</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>ELEVATE YOUR BRAND</h1>
+            <p class="lead">Panda Media Enterprise provides secure, reliable, and premium business solutions tailored for modern success.</p>
+            <a href="#services" class="btn btn-primary btn-lg shadow">OUR PREMIUM OFFERINGS</a>
+        </div>
+    </header>
+
+    <div class="container my-5 py-5" id="services">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold">PROFESSIONAL SERVICES</h2>
+            <div style="width: 60px; height: 4px; background: var(--accent-gold); margin: 15px auto;"></div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="card p-5 h-100">
+                    <div class="mb-3 text-primary"><i class="fas fa-chart-line fa-3x" style="color: var(--accent-gold);"></i></div>
+                    <h3>BUSINESS CONSULTING</h3>
+                    <p class="text-muted">High-quality professional strategies & tactics to scale your enterprise effectively.</p>
+                    <p class="price-tag">₦8,000</p>
+                   <button onclick="startLoading(this,'professional business service')" 
+class="btn btn-outline-dark mt-auto">
+PURCHASE NOW
+</button>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card p-5 h-100">
+                    <div class="mb-3"><i class="fas fa-gem fa-3x" style="color: var(--accent-gold);"></i></div>
+                    <h3>PREMIUM MEDIA</h3>
+                    <p class="text-muted">Full business media package including brand design and management.</p>
+                    <p class="price-tag">₦15,000</p>
+                   <button onclick="startLoading(this,'Premium Media Service')" 
+class="btn btn-outline-dark mt-auto">
+PURCHASE NOW
+</button>
+</div>
+            </div>
+            <div class="col-md-4" id="contact">
+                <div class="card p-5 h-100 bg-white shadow-sm border">
+                    
+                    <section class="skills-section">
+
+<div class="skills-header">
+<i class="fas fa-graduation-cap"></i>
+<h2>LEARN DIGITAL SKILLS & RESOURCES</h2>
+</div>
+
+<p class="skills-sub">
+Get access to practical digital training and online resources.
+</p>
+
+
+<div class="course-box">
+
+<div class="course-title" onclick="toggleCourse(this)">
+<span>GRAPHICS DESIGN</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="course-content">
+
+<p>Learn professional logo design, branding and social media graphics.</p>
+
+<p class="price">₦25,000</p>
+
+<button onclick="startLoading(this,'Graphics design')" class="buy-btn">
+PURCHASE NOW
+</button>
+</div>
+
+</div>
+
+
+
+<div class="course-box">
+
+<div class="course-title" onclick="toggleCourse(this)">
+<span>FOREX TRADING</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="course-content">
+
+<p>Learn forex trading strategies and risk management.</p>
+
+<p class="price">₦30,000</p>
+
+<button onclick="startLoading(this,'Forex trading')" class="buy-btn">
+PURCHASE NOW
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="course-box">
+
+<div class="course-title" onclick="toggleCourse(this)">
+<span>DIGITAL MARKETING</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="course-content">
+
+<p>Learn how to promote businesses online using ads and social media.</p>
+
+<p class="price">₦20,000</p>
+
+<button onclick="startLoading(this,'Digital marketing')" class="buy-btn">
+PURCHASE NOW
+</button>
+
+</div>
+
+</div>
+
+<div class="course-box">
+
+<div class="course-title" onclick="toggleCourse(this)">
+<span>GHOSTWRITING</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="course-content">
+
+<p>Learn how to write high-quality content for clients including ebooks, blog posts and social media content.</p>
+
+<p class="price">₦15,000</p>
+
+<button onclick="startLoading(this,'Ghost writing')" class="buy-btn">
+PURCHASE NOW
+</button>
+
+</div>
+
+</div>
+
+<div class="course-box">
+
+<div class="course-title" onclick="toggleCourse(this)">
+<span>VIDEO EDITING</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="course-content">
+
+<p>Learn professional video editing techniques for YouTube, social media and digital marketing.</p>
+
+<p class="price">₦20,000</p>
+
+<button onclick="startLoading(this,'Video Editing')" class="buy-btn">
+PURCHASE NOW
+</button>
+</div>
+
+</div>
+
+<div class="course-box">
+
+<div class="course-title" onclick="toggleCourse(this)">
+<span>WEB DESIGN & DEVELOPMENT</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="course-content">
+
+<p>Learn how to build modern websites using HTML, CSS, JavaScript and website builders.</p>
+
+<p class="price">₦35,000</p>
+
+<button onclick="startLoading(this,'Web development')" class="buy-btn">
+PURCHASE NOW
+</button>
+</div>
+
+</div>
+
+<div class="course-box">
+
+<div class="course-title" onclick="toggleCourse(this)">
+<span>SOCIAL MEDIA MANAGEMENT</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="course-content">
+
+<p>Learn how to manage and grow business accounts on Instagram, Facebook and TikTok.</p>
+
+<p class="price">₦18,000</p>
+
+<button onclick="startLoading(this,'Social media management')" class="buy-btn">
+PURCHASE NOW
+</button>
+
+</div>
+
+</div>
+
+</section>
+                    <h3 class="mb-4">Get In Touch</h3>
+                    <div class="contact-info mb-3">
+                        <p><i class="fas fa-envelope"></i> pandaxclusivemedia@gmail.com</p>
+                        <p><i class="fas fa-phone-alt"></i> +234 812 203 7366</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Nigeria (Online Services)</p>
+                    </div>
+                    <hr>
+                    <p class="small text-muted">Available 24/7 for consultations and support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <h5 class="text-uppercase tracking-wider">Panda Media Enterprise</h5>
+                    <p class="small opacity-75">Innovative Digital and Business Solutions</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="refund.html">Refund Policy</a>
+            </div>
+            <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0;"></div>
+            <p class="small">&copy; 2025 Panda Media Enterprise. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+
+function toggleCourse(el){
+
+const box = el.parentElement;
+
+box.classList.toggle("active");
+
+}
+
+function startLoading(button, course){
+
+    button.innerHTML = "Loading...⏳";
+    button.disabled = true;
+
+    const phone = "2348122037366";
+    const message = `Hello Panda, I want to purchase the ${course} full course`;
+    const encodedMessage = encodeURIComponent(message);
+
+    setTimeout(function(){
+        window.location.href = `https://wa.me/${phone}?text=${encodedMessage}`;
+    }, 4000);
+}
+</script>
+</body>
+</html>
+
+
